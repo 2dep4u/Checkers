@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Checkers!</title>
+    <style>
+        * { padding: 0; margin: 0; }
+        canvas { display: block; position:absolute }
+        #layer1 { background: #eee;}
+    </style>
+</head>
+<body>
+    <canvas id="layer1" width="472" height="472"></canvas>
+    <canvas id="layer2" width="472" height="472"></canvas>
+    <script type="text/javascript">
+        var layer1;
+        var layer2;
+        var ctx1;
+        var ctx2;
+        var checkerBoard;
+        var gameRedPiece;
+        var gameBlackPiece;
+        var gameRedKing;
+        var gameBlackKing;
+        var gameField = [];
+        var stack =[];
+        function init() {
+            layer1 = document.getElementById("layer1");
+            ctx1 = layer1.getContext("2d");
+            checkerBoard = new Image();
+            checkerBoard.src = 'img/checkerBoard.png';
+            layer2 = document.getElementById("layer2");
+            ctx2 = layer2.getContext("2d");
+            gameRedPiece = new Image();
+            gameRedPiece.src = 'img/red_piece.png';
+            gameBlackPiece = new Image();
+            gameBlackPiece.src = 'img/black_piece.png';
+            gameRedKing = new Image();
+            gameRedKing.src = 'img/red_king.png';
+            gameBlackKing = new Image();
+            gameBlackKing.src = 'img/black_king.png';
+            setGameField();
+            setInterval(drawAll, 20);
+        }
+        function setGameField() {
+            for (var x = 0; x < 8; ++x) {
+                gameField[x]=[];
+                for (var y = 0; y < 8; ++y) {
+                    if (((y%2 == 0) && (x%2 == 1) && (y <3)) || ((y%2 == 1) && (x%2 == 0) && (y <3))) {
+                        //red
+                        gameField[x][y] = 11;
+                    }
+                    else if (((y%2 == 0) && (x%2 == 1) && (y>4)) || ((y%2 == 1) && (x%2 == 0) && (y>4))) {
+                        //black
+                            gameField[x][y] = 7;
+                    }
+                    else if (((y%2 == 0) && (x%2 == 1))|| ((y%2 == 1) && (x%2 == 0)))
+                        //empty
+                        gameField[x][y] = 5;
+                    else
+                        //cant touch
+                        gameField[x][y] = 3;
+                }
+            }
+        }
+        function drawPieces(){
+            ctx2.clearRect(0,0,472,472);
+            for (var x = 0; x < 8; ++x) {
+                for (var y = 0; y < 8; ++y) {
+                    if ( gameField[x][y]==11)
+                        ctx2.drawImage(gameRedPiece,x*59+4,y*59+4);
+                    else if(gameField[x][y]==22)
+                        ctx2.drawImage(gameRedKing,x*59+4,y*59+4);
+                    else if(gameField[x][y]==7)
+                        ctx2.drawImage(gameBlackPiece,x*59+4,y*59+4);
+                    else if(gameField[x][y]==14)
+                        ctx2.drawImage(gameBlackKing,x*59+4,y*59+4);
+                }
+            }
+        }
+        function getPosition(event) {
+            var x = event.x;
+            var y = event.y;
+            y = Math.floor(y/59);
+            x = Math.floor(x/59);
+            if ((x >= 0 && x < 8)&& ((y >=0) && (y < 8))) {
+                if ((gameField[x][y] > 5) && (stack.length == 0)) {
+                    stack.push(x);
+                    stack.push(y);
+                }
+                else if (stack.length > 0) {
+                    var tempY = stack.pop();
+                    var tempX = stack.pop();
+                    if (((tempX != x) && (tempY != y)) && (gameField[x][y] == 5))
+                        movePieces(tempX, tempY, x, y);
+                }
+            }
+        }
+        function movePieces(oldPosX,oldPosY,newPosX,newPosY) {
+            var deltaY = oldPosY - newPosY;
+            var oldPosVal = gameField[oldPosX][oldPosY];
+            if((Math.abs(deltaY) == 1) &&
+                    (((oldPosVal == 11) && (deltaY<0)) || ((oldPosVal == 7) && (deltaY>0)) || (oldPosVal>11))) {
+                gameField[newPosX][newPosY] = gameField[oldPosX][oldPosY];
+                gameField[oldPosX][oldPosY] = 5;
+            }
+            else if(Math.abs(deltaY) == 2) {
+                attackPiece(oldPosX,oldPosY,newPosX,newPosY);
+            }
+            var newPosVal = gameField[newPosX][newPosY];
+            if(newPosVal==11 && newPosY == 7)
+                gameField[newPosX][newPosY]=22;
+            else if(newPosVal==7 && newPosY == 0)
+                gameField[newPosX][newPosY]=14;
+        }
+        function attackPiece(oldPosX,oldPosY,newPosX, newPosY) {
+            var deltaY = oldPosY - newPosY;
+            var deltaX = oldPosX - newPosX;
+            var oldPosVal = gameField[oldPosX][oldPosY];
+            var enemy_top = oldPosY -1;
+            var enemy_below = oldPosY + 1;
+            var enemy_right = oldPosX + 1;
+            var enemy_left = oldPosX - 1;
+            if ((deltaX < 0) && (((oldPosVal == 7) && (deltaY > 0) && (gameField[enemy_right][enemy_top]%11 == 0)) ||
+                ((oldPosVal == 14) && (gameField[enemy_right][enemy_top]%11 == 0)) ||
+                ((oldPosVal == 22) && (gameField[enemy_right][enemy_top]%7 == 0)))){
+                    gameField[newPosX][newPosY] = oldPosVal;
+                    gameField[oldPosX][oldPosY] = 5;
+                    gameField[enemy_right][enemy_top] = 5;
+            }
+            else if ((deltaX > 0) && (((oldPosVal == 7) && (deltaY > 0) && (gameField[enemy_left][enemy_top]%11 == 0)) ||
+                     ((oldPosVal == 14)  && (gameField[enemy_left][enemy_top]%11 == 0)) ||
+                     ((oldPosVal == 22)  && (gameField[enemy_left][enemy_top]%7 == 0)))){
+                    gameField[newPosX][newPosY] = oldPosVal;
+                    gameField[oldPosX][oldPosY] = 5;
+                    gameField[enemy_left][enemy_top] = 5;
+            }
+            else if ((deltaX < 0) &&(((oldPosVal == 11) && (deltaY < 0) && (gameField[enemy_right][enemy_below]%7 == 0)) ||
+                    ((oldPosVal == 14) && (gameField[enemy_right][enemy_below]%11 == 0)) ||
+                    ((oldPosVal == 22) && (gameField[enemy_right][enemy_below]%7 == 0)))){
+                    gameField[newPosX][newPosY] = oldPosVal;
+                    gameField[oldPosX][oldPosY] = 5;
+                    gameField[enemy_right][enemy_below] = 5;
+            }
+            else if ((deltaX > 0) && (((oldPosVal == 11) && (deltaY < 0) && (gameField[enemy_left][enemy_below]%7 == 0)) ||
+                    ((oldPosVal == 14) && (gameField[enemy_left][enemy_below]%11 == 0)) ||
+                    ((oldPosVal == 22) && (gameField[enemy_left][enemy_below]%7 == 0)))){
+                    gameField[newPosX][newPosY] = oldPosVal;
+                    gameField[oldPosX][oldPosY] = 5;
+                    gameField[enemy_left][enemy_below] = 5;
+            }
+        }
+
+        function drawAll(){
+            ctx1.drawImage(checkerBoard,0,0);
+            drawPieces();
+        }
+        document.addEventListener("mousedown", getPosition, false);
+        init();
+    </script>
+</body>
+</html>
