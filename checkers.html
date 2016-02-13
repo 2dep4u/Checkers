@@ -17,7 +17,7 @@
         var layer2;
         var ctx1;
         var ctx2;
-        var checkerBoard;
+        var spriteSheet;
         var gameRedPiece;
         var gameBlackPiece;
         var gameRedKing;
@@ -27,21 +27,14 @@
         function init() {
             layer1 = document.getElementById("layer1");
             ctx1 = layer1.getContext("2d");
-            checkerBoard = new Image();
-            checkerBoard.src = 'img/checkerBoard.png';
             layer2 = document.getElementById("layer2");
             ctx2 = layer2.getContext("2d");
-            gameRedPiece = new Image();
-            gameRedPiece.src = 'img/red_piece.png';
-            gameBlackPiece = new Image();
-            gameBlackPiece.src = 'img/black_piece.png';
-            gameRedKing = new Image();
-            gameRedKing.src = 'img/red_king.png';
-            gameBlackKing = new Image();
-            gameBlackKing.src = 'img/black_king.png';
+            spriteSheet = new Image();
+            spriteSheet.src = 'img/sprite_sheet.png';
             setGameField();
             setInterval(drawAll, 20);
         }
+
         function setGameField() {
             for (var x = 0; x < 8; ++x) {
                 gameField[x]=[];
@@ -63,20 +56,25 @@
                 }
             }
         }
+
         function drawPieces(){
             ctx2.clearRect(0,0,472,472);
             for (var x = 0; x < 8; ++x) {
                 for (var y = 0; y < 8; ++y) {
                     if ( gameField[x][y]==11)
-                        ctx2.drawImage(gameRedPiece,x*59+4,y*59+4);
+                        ctx2.drawImage(spriteSheet,472,0,50,50,x*59+4,y*59+4,50,50);
                     else if(gameField[x][y]==22)
-                        ctx2.drawImage(gameRedKing,x*59+4,y*59+4);
+                        ctx2.drawImage(spriteSheet,472,50,50,50,x*59+4,y*59+4,50,50);
                     else if(gameField[x][y]==7)
-                        ctx2.drawImage(gameBlackPiece,x*59+4,y*59+4);
+                        ctx2.drawImage(spriteSheet,472,100,50,50,x*59+4,y*59+4,50,50);
                     else if(gameField[x][y]==14)
-                        ctx2.drawImage(gameBlackKing,x*59+4,y*59+4);
+                        ctx2.drawImage(spriteSheet,472,150,50,50,x*59+4,y*59+4,50,50);
                 }
             }
+        }
+        function drawAll(){
+            ctx1.drawImage(spriteSheet,0,0,472,472,0,0,472,472);
+            drawPieces();
         }
         function getPosition(event) {
             var x = event.x;
@@ -151,10 +149,6 @@
             }
         }
 
-        function drawAll(){
-            ctx1.drawImage(checkerBoard,0,0);
-            drawPieces();
-        }
         document.addEventListener("mousedown", getPosition, false);
         init();
     </script>
