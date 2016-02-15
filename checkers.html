@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Checkers!</title>
     <style>
+        *{ padding:0; margin:0;}
         canvas { position:fixed;}
         #layer1 { background:#eee;}
 
@@ -20,6 +21,8 @@
         var spriteSheet;
         var gameField = [];
         var stack =[];
+
+        init();
         function init() {
             layer1 = document.getElementById("layer1");
             ctx1 = layer1.getContext("2d");
@@ -30,7 +33,6 @@
             setGameField();
             setInterval(drawAll, 20);
         }
-
         function setGameField() {
             for (var x = 0; x < 8; ++x) {
                 gameField[x]=[];
@@ -52,7 +54,10 @@
                 }
             }
         }
-
+        function drawAll(){
+            ctx1.drawImage(spriteSheet,0,0,472,472,0,0,472,472);
+            drawPieces();
+        }
         function drawPieces(){
             ctx2.clearRect(0,0,472,472);
             for (var x = 0; x < 8; ++x) {
@@ -68,10 +73,8 @@
                 }
             }
         }
-        function drawAll(){
-            ctx1.drawImage(spriteSheet,0,0,472,472,0,0,472,472);
-            drawPieces();
-        }
+
+        document.addEventListener("mousedown", getPosition, false);
         function getPosition(event) {
             var x = event.x;
             var y = event.y;
@@ -113,41 +116,35 @@
             var deltaY = oldPosY - newPosY;
             var deltaX = oldPosX - newPosX;
             var oldPosVal = gameField[oldPosX][oldPosY];
-            var enemy_top = oldPosY -1;
+            var enemy_top = oldPosY - 1;
             var enemy_below = oldPosY + 1;
             var enemy_right = oldPosX + 1;
             var enemy_left = oldPosX - 1;
-            if ((deltaX < 0) && (((oldPosVal == 7) && (deltaY > 0) && (gameField[enemy_right][enemy_top]%11 == 0)) ||
-                ((oldPosVal == 14) && (gameField[enemy_right][enemy_top]%11 == 0)) ||
-                ((oldPosVal == 22) && (gameField[enemy_right][enemy_top]%7 == 0)))){
-                    gameField[newPosX][newPosY] = oldPosVal;
-                    gameField[oldPosX][oldPosY] = 5;
-                    gameField[enemy_right][enemy_top] = 5;
+
+            if ((deltaX < 0) && (((oldPosVal%7 == 0) && (deltaY > 0) && (gameField[enemy_right][enemy_top] % 11 == 0)) ||
+                    ((oldPosVal == 22) && (gameField[enemy_right][enemy_top] % 7 == 0)))) {
+                attackSuccess(enemy_right,enemy_top);
             }
-            else if ((deltaX > 0) && (((oldPosVal == 7) && (deltaY > 0) && (gameField[enemy_left][enemy_top]%11 == 0)) ||
-                     ((oldPosVal == 14)  && (gameField[enemy_left][enemy_top]%11 == 0)) ||
-                     ((oldPosVal == 22)  && (gameField[enemy_left][enemy_top]%7 == 0)))){
-                    gameField[newPosX][newPosY] = oldPosVal;
-                    gameField[oldPosX][oldPosY] = 5;
-                    gameField[enemy_left][enemy_top] = 5;
+            else if ((deltaX > 0) && (((oldPosVal%7 == 0) && (deltaY > 0) && (gameField[enemy_left][enemy_top] % 11 == 0)) ||
+                    ((oldPosVal == 22) && (gameField[enemy_left][enemy_top] % 7 == 0)))) {
+                attackSuccess(enemy_left,enemy_top);
+
             }
-            else if ((deltaX < 0) &&(((oldPosVal == 11) && (deltaY < 0) && (gameField[enemy_right][enemy_below]%7 == 0)) ||
-                    ((oldPosVal == 14) && (gameField[enemy_right][enemy_below]%11 == 0)) ||
-                    ((oldPosVal == 22) && (gameField[enemy_right][enemy_below]%7 == 0)))){
-                    gameField[newPosX][newPosY] = oldPosVal;
-                    gameField[oldPosX][oldPosY] = 5;
-                    gameField[enemy_right][enemy_below] = 5;
+            else if ((deltaX < 0) && (((oldPosVal%11 == 0) && (deltaY < 0) && (gameField[enemy_right][enemy_below] % 7 == 0)) ||
+                    ((oldPosVal == 14) && (gameField[enemy_right][enemy_below] % 11 == 0)))) {
+                attackSuccess(enemy_right,enemy_below);
             }
-            else if ((deltaX > 0) && (((oldPosVal == 11) && (deltaY < 0) && (gameField[enemy_left][enemy_below]%7 == 0)) ||
-                    ((oldPosVal == 14) && (gameField[enemy_left][enemy_below]%11 == 0)) ||
-                    ((oldPosVal == 22) && (gameField[enemy_left][enemy_below]%7 == 0)))){
-                    gameField[newPosX][newPosY] = oldPosVal;
-                    gameField[oldPosX][oldPosY] = 5;
-                    gameField[enemy_left][enemy_below] = 5;
+            else if ((deltaX > 0) && (((oldPosVal%11 == 0) && (deltaY < 0) && (gameField[enemy_left][enemy_below] % 7 == 0)) ||
+                    ((oldPosVal == 14) && (gameField[enemy_left][enemy_below] % 11 == 0)))) {
+                attackSuccess(enemy_left,enemy_below);
+            }
+            function attackSuccess(enemyX,enemyY){
+                gameField[newPosX][newPosY] = oldPosVal;
+                gameField[oldPosX][oldPosY] = 5;
+                gameField[enemyX][enemyY] = 5;
             }
         }
-        document.addEventListener("mousedown", getPosition, false);
-        init();
+
     </script>
 </body>
 </html>
