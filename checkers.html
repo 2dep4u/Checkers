@@ -73,7 +73,7 @@
                 }
             }
         }
-
+        document.addEventListener("touchstart", getPosition,false);
         document.addEventListener("mousedown", getPosition, false);
         function getPosition(event) {
             var x = event.x;

@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27bf71c4-7e1c-4c6e-bf51-c3e6a4c87bcc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/spec/PlayerSpec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/spec/SpecHelper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/spec/helloWorldSpec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/src/Player.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/src/Song.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/src/helloWorld.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Jasmine/SpecRunner.html" afterPath="$PROJECT_DIR$/Jasmine/SpecRunner.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checkers.html" afterPath="$PROJECT_DIR$/checkers.html" />
     </list>
     <ignored path="checkers_game.iws" />
@@ -30,14 +22,14 @@
     <favorites_list name="checkers_game" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.76627535">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="checkers.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/checkers.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.05764967">
-                  <caret line="105" column="44" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+                <state vertical-scroll-proportion="0.20795454">
+                  <caret line="75" column="67" selection-start-line="75" selection-start-column="67" selection-end-line="75" selection-end-column="67" />
                   <folding />
                 </state>
               </provider>
@@ -70,7 +62,7 @@
           <file leaf-file-name="checkersAI.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Jasmine/src/checkersAI.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3114224">
+                <state vertical-scroll-proportion="-1.1710817">
                   <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
@@ -99,11 +91,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/helloWorld.xhtml" />
-        <option value="$PROJECT_DIR$/checkers.html" />
         <option value="$PROJECT_DIR$/checkersAI.js" />
         <option value="$PROJECT_DIR$/checkerSpec.js" />
         <option value="$PROJECT_DIR$/Jasmine/spec/checkersAISpec.js" />
         <option value="$PROJECT_DIR$/Jasmine/src/checkersAI.js" />
+        <option value="$PROJECT_DIR$/checkers.html" />
       </list>
     </option>
   </component>
@@ -113,10 +105,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1098" />
+    <option name="x" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1076" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -231,7 +222,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <frame x="-8" y="0" width="976" height="1076" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14087513" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -378,7 +369,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jasmine/src/checkersAI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3114224">
+        <state vertical-scroll-proportion="-1.1710817">
           <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -388,8 +379,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/checkers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05764967">
-          <caret line="105" column="44" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.20795454">
+          <caret line="75" column="67" selection-start-line="75" selection-start-column="67" selection-end-line="75" selection-end-column="67" />
           <folding />
         </state>
       </provider>
