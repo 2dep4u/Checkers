@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27bf71c4-7e1c-4c6e-bf51-c3e6a4c87bcc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/spec/PlayerSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/spec/SpecHelper.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/spec/helloWorldSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/src/Player.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/src/Song.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jasmine/src/helloWorld.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Jasmine/SpecRunner.html" afterPath="$PROJECT_DIR$/Jasmine/SpecRunner.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checkers.html" afterPath="$PROJECT_DIR$/checkers.html" />
     </list>
     <ignored path="checkers_game.iws" />
@@ -24,24 +30,65 @@
     <favorites_list name="checkers_game" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="checkers.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/checkers.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65831435">
-              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="checkers.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/checkers.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.05764967">
+                  <caret line="105" column="44" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SpecRunner.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Jasmine/SpecRunner.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="checkersAISpec.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Jasmine/spec/checkersAISpec.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="checkersAI.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Jasmine/src/checkersAI.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.3114224">
+                  <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
         <option value="XHTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -53,6 +100,10 @@
       <list>
         <option value="$PROJECT_DIR$/helloWorld.xhtml" />
         <option value="$PROJECT_DIR$/checkers.html" />
+        <option value="$PROJECT_DIR$/checkersAI.js" />
+        <option value="$PROJECT_DIR$/checkerSpec.js" />
+        <option value="$PROJECT_DIR$/Jasmine/spec/checkersAISpec.js" />
+        <option value="$PROJECT_DIR$/Jasmine/src/checkersAI.js" />
       </list>
     </option>
   </component>
@@ -62,9 +113,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="957" />
-    <option name="width" value="971" />
-    <option name="height" value="1076" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -98,7 +150,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="XHTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Jasmine/spec/helloWorldSpec.js" />
   </component>
   <component name="RunManager" selected="JavaScript Debug.checkers.html">
     <configuration default="false" name="checkers.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/checkers_game/checkers.html">
@@ -152,8 +204,12 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.checkers.html" />
+    <configuration default="false" name="SpecRunner.html" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/checkers_game/Jasmine/SpecRunner.html">
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.SpecRunner.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.checkers.html" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -175,7 +231,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="957" y="0" width="971" height="1076" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14087513" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -217,7 +273,41 @@
     <entry file="file://$PROJECT_DIR$/checkers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jasmine/SpecRunner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jasmine/spec/checkersAISpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jasmine/src/checkersAI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="146" column="13" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -264,8 +354,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/checkers.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65831435">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jasmine/SpecRunner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jasmine/spec/checkersAISpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jasmine/src/checkersAI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3114224">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05764967">
+          <caret line="105" column="44" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
           <folding />
         </state>
       </provider>
