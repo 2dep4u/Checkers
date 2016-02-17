@@ -21,6 +21,9 @@
     var spriteSheet;
     var gameField = [];
     var stack =[];
+    var selected = false;
+    var xSel = 0;
+    var ySel = 0;
 
     init();
     function init() {
@@ -56,6 +59,8 @@
     }
     function drawAll(){
         ctx1.drawImage(spriteSheet,0,0,472,472,0,0,472,472);
+        if (selected == true)
+            ctx1.drawImage(spriteSheet,472,200,59,59,xSel*59,ySel*59-1,63,60);
         drawPieces();
     }
     function drawPieces(){
@@ -73,6 +78,7 @@
             }
         }
     }
+
     document.addEventListener("touchstart", getTouchPos);
     document.addEventListener("mousedown", getClickPos);
     function getTouchPos(event){
@@ -96,6 +102,9 @@
         if ((x >= 0 && x < 8)&& ((y >=0) && (y < 8))) {
             if ((gameField[x][y] > 5) && (stack.length == 0)) {
                 document.body.style.cursor = "crosshair";
+                xSel = x;
+                ySel = y;
+                selected = true;
                 stack.push(x);
                 stack.push(y);
             }
@@ -105,8 +114,10 @@
                 var tempX = stack.pop();
                 if (((tempX != x) && (tempY != y)) && (gameField[x][y] == 5))
                     movePieces(tempX, tempY, x, y);
+                selected = false;
             }
         }
+        console.log(xSel + " " + ySel + " " + selected);
     }
     function movePieces(oldPosX,oldPosY,newPosX,newPosY) {
         var deltaY = oldPosY - newPosY;
