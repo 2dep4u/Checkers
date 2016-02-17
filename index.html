@@ -58,10 +58,11 @@
         }
     }
     function drawAll(){
+        ctx1.clearRect(0,0,472,472);
         ctx1.drawImage(spriteSheet,0,0,472,472,0,0,472,472);
-        drawPieces();
         if (selected == true)
-            ctx2.drawImage(spriteSheet,472,200,59,59,xSel*59,ySel*59-1,63,62);
+            ctx1.drawImage(spriteSheet,472,200,59,59,xSel*59,ySel*59-1,63,62);
+        drawPieces();
     }
     function drawPieces(){
         ctx2.clearRect(0,0,472,472);
@@ -92,8 +93,8 @@
         event.preventDefault();
     }
     function getClickPos(event){
-        x = event.clientX;
-        y = event.clientY;
+        var x = event.clientX;
+        var y = event.clientY;
         applyActions(x,y);
     }
     function applyActions(x,y) {
