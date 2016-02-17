@@ -59,9 +59,9 @@
     }
     function drawAll(){
         ctx1.drawImage(spriteSheet,0,0,472,472,0,0,472,472);
-        if (selected == true)
-            ctx1.drawImage(spriteSheet,472,200,59,59,xSel*59,ySel*59-1,63,60);
         drawPieces();
+        if (selected == true)
+            ctx2.drawImage(spriteSheet,472,200,59,59,xSel*59,ySel*59-1,63,62);
     }
     function drawPieces(){
         ctx2.clearRect(0,0,472,472);
